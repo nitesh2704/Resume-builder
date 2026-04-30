@@ -1,0 +1,10 @@
+node_modules/
+dist/
+target/
+.env
+.env.local
+.idea/
+.vscode/
+*.log
+frontend/*-check-*.png
+frontend/auth-flow-*.png
