@@ -8,5 +8,9 @@ export const aiService = {
   grammar: async (payload) => {
     const { data } = await api.post('/ai/grammar', payload)
     return data
+  },
+  generateResume: async (payload) => {
+    const { data } = await api.post('/ai/generate-resume', payload)
+    return data
   }
 }

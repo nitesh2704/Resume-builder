@@ -26,7 +26,7 @@ export default function Dashboard() {
   const { resumes, loading, error, fetchResumes, searchResumes, deleteResume } = useResumes()
 
   useEffect(() => {
-    fetchResumes().catch(() => {})
+    fetchResumes().catch(() => { })
   }, [])
 
   const stats = useMemo(() => {

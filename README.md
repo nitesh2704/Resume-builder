@@ -7,7 +7,7 @@ AI-powered resume builder with role-specific content suggestions, Spring Boot AP
 - Frontend: React + Vite, Tailwind CSS, Context API, Axios, Formik, Yup, lucide-react
 - Backend: Java 17, Spring Boot, Spring Security, JWT, Spring Data MongoDB, Swagger
 - Database: MongoDB or MongoDB Atlas
-- AI: OpenAI Responses API via `POST /v1/responses`
+- AI: Google Gemini (Generative Language API)
 
 ## Project Structure
 
@@ -41,8 +41,11 @@ docker compose up -d
 ```bash
 set MONGODB_URI=mongodb://localhost:27017/verdant_resume_builder
 set JWT_SECRET=replace-with-a-long-random-secret-at-least-32-characters
-set OPENAI_API_KEY=your-openai-key
+set GEMINI_API_KEY=your-gemini-key
+set GEMINI_MODEL=gemini-2.5-flash
 ```
+
+You can also put these values in a root `.env` file (same folder as this README). The backend loads `.env` automatically.
 
 4. Run backend:
 
@@ -109,7 +112,7 @@ Backend on Render/AWS:
 - Required environment variables:
   - `MONGODB_URI`
   - `JWT_SECRET`
-  - `OPENAI_API_KEY`
+  - `GEMINI_API_KEY`
   - `CORS_ALLOWED_ORIGINS`
 
 MongoDB Atlas:

@@ -53,7 +53,7 @@ public class DataSeeder {
                 resume.setTemplateId("forest");
                 resume.setSummary("Final-year computer science student building secure Spring Boot APIs, MongoDB data models, and React dashboards with measurable project outcomes.");
                 resume.setPersonalInfo(personalInfo());
-                resume.setSkills(List.of("Java", "Spring Boot", "MongoDB", "JWT", "React", "REST API", "Tailwind CSS", "OpenAI API"));
+                resume.setSkills(List.of("Java", "Spring Boot", "MongoDB", "JWT", "React", "REST API", "Tailwind CSS", "Gemini API"));
                 resume.setEducation(List.of(education()));
                 resume.setExperience(List.of(experience()));
                 resume.setProjects(List.of(project()));
@@ -113,7 +113,7 @@ public class DataSeeder {
         ProjectItem project = new ProjectItem();
         project.setName("Verdant AI Resume Builder");
         project.setDescription("AI-powered full-stack resume builder with role-specific suggestions, ATS scoring, templates, and PDF export.");
-        project.setTechnologies(List.of("React", "Tailwind CSS", "Spring Boot", "MongoDB", "OpenAI API"));
+        project.setTechnologies(List.of("React", "Tailwind CSS", "Spring Boot", "MongoDB", "Gemini API"));
         project.setLink("github.com/demo/verdant-ai");
         return project;
     }

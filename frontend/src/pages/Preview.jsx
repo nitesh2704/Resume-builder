@@ -34,7 +34,21 @@ export default function Preview() {
               Edit
             </Button>
           </Link>
-          <Button onClick={() => window.print()}>
+          <Button onClick={() => {
+            try {
+              const node = document.getElementById('resume-preview')
+              if (!node) { window.print(); return }
+              const html = node.outerHTML
+              const cssNodes = Array.from(document.querySelectorAll('link[rel="stylesheet"], style'))
+              const css = cssNodes.map((n) => n.outerHTML).join('\n')
+              const w = window.open('', '_blank', 'width=900,height=1120')
+              if (!w) { window.print(); return }
+              w.document.open()
+              w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Resume</title>${css}</head><body>${html}</body></html>`)
+              w.document.close()
+              setTimeout(() => { w.focus(); w.print(); w.close() }, 600)
+            } catch (e) { console.error(e); window.print() }
+          }}>
             <Download className="h-4 w-4" />
             Export PDF
           </Button>

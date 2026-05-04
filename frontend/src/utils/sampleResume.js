@@ -88,7 +88,7 @@ export const demoResume = {
       name: 'Verdant AI Resume Builder',
       description: 'AI-powered resume builder with role suggestions, ATS scoring, templates, and PDF export.',
       link: 'github.com/demo/verdant-ai',
-      technologies: ['React', 'Spring Boot', 'MongoDB', 'OpenAI API']
+      technologies: ['React', 'Spring Boot', 'MongoDB', 'Gemini API']
     }
   ],
   certifications: ['MongoDB Basics', 'Java Full Stack Development'],

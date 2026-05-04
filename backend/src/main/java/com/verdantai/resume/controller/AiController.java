@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.verdantai.resume.dto.AiSuggestionRequest;
 import com.verdantai.resume.dto.AiSuggestionResponse;
+import com.verdantai.resume.dto.AiResumeRequest;
+import com.verdantai.resume.dto.AiResumeResponse;
 import com.verdantai.resume.dto.GrammarRequest;
 import com.verdantai.resume.dto.GrammarResponse;
 import com.verdantai.resume.service.AiService;
@@ -31,5 +33,10 @@ public class AiController {
     @PostMapping("/grammar")
     public GrammarResponse correctGrammar(@Valid @RequestBody GrammarRequest request) {
         return aiService.correctGrammar(request);
+    }
+
+    @PostMapping("/generate-resume")
+    public AiResumeResponse generateResume(@Valid @RequestBody AiResumeRequest request) {
+        return aiService.generateResume(request);
     }
 }

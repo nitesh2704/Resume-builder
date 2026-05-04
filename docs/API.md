@@ -31,7 +31,7 @@ Authorization: Bearer <jwt>
 - `POST /ai/suggestions`
 - `POST /ai/grammar`
 
-If `OPENAI_API_KEY` is not configured, the backend returns deterministic fallback suggestions for demo continuity.
+If `GEMINI_API_KEY` is not configured, the backend returns deterministic fallback suggestions for demo continuity.
 
 ## Templates
 

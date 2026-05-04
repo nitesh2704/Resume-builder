@@ -12,7 +12,7 @@
     "portfolio": "demo.dev"
   },
   "summary": "Final-year computer science student building secure Spring Boot APIs, MongoDB data models, and polished React dashboards with measurable project outcomes.",
-  "skills": ["Java", "Spring Boot", "MongoDB", "JWT", "React", "REST API", "Tailwind CSS", "OpenAI API"],
+  "skills": ["Java", "Spring Boot", "MongoDB", "JWT", "React", "REST API", "Tailwind CSS", "Gemini API"],
   "experience": [
     {
       "company": "Campus Innovation Lab",
@@ -41,7 +41,7 @@
       "name": "Verdant AI Resume Builder",
       "description": "AI-powered resume builder with role suggestions, ATS scoring, templates, and PDF export.",
       "link": "github.com/demo/verdant-ai",
-      "technologies": ["React", "Spring Boot", "MongoDB", "OpenAI API"]
+      "technologies": ["React", "Spring Boot", "MongoDB", "Gemini API"]
     }
   ],
   "certifications": ["MongoDB Basics", "Java Full Stack Development"]

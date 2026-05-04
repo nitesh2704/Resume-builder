@@ -13,9 +13,8 @@ export default function ThemeToggle() {
       title="Toggle theme"
     >
       <span
-        className={`absolute h-9 w-9 rounded-full bg-gradient-to-br from-verdant-primary to-green-400 shadow-md transition-transform duration-300 ${
-          isDark ? 'translate-x-9' : 'translate-x-0'
-        }`}
+        className={`absolute h-9 w-9 rounded-full bg-gradient-to-br from-verdant-primary to-green-400 shadow-md transition-transform duration-300 ${isDark ? 'translate-x-9' : 'translate-x-0'
+          }`}
       />
       <span className="relative z-10 flex w-full items-center justify-between px-2 text-xs text-gray-500 dark:text-gray-300">
         <Sun className="h-4 w-4" />

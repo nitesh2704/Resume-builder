@@ -14,7 +14,7 @@ export default function Navbar({ onSearch }) {
   const title = titles[location.pathname] || (location.pathname.startsWith('/builder') ? 'Resume Builder' : 'Verdant AI')
 
   return (
-    <header className="no-print sticky top-0 z-20 border-b border-green-100/80 bg-verdant-light/80 backdrop-blur-xl transition-colors duration-300 dark:border-emerald-950 dark:bg-verdant-dark/80 lg:ml-80">
+    <header className="no-print sticky top-0 z-20 border-b border-green-100/70 bg-verdant-light/70 backdrop-blur-2xl transition-colors duration-300 dark:border-emerald-950 dark:bg-verdant-dark/70 lg:ml-80">
       <div className="flex min-h-20 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-3">
           <Link to="/dashboard" className="lg:hidden">

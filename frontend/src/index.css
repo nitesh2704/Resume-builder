@@ -52,11 +52,11 @@ select {
 }
 
 .verdant-panel {
-  @apply border border-green-200/80 bg-white/90 shadow-card backdrop-blur-xl dark:border-emerald-900/60 dark:bg-gray-900/80;
+  @apply border border-green-200/60 bg-white/70 shadow-card backdrop-blur-2xl dark:border-emerald-900/50 dark:bg-gray-900/70;
 }
 
 .verdant-input {
-  @apply w-full rounded-2xl border border-green-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-verdant-primary focus:ring-4 focus:ring-green-100 dark:border-emerald-900 dark:bg-gray-950 dark:text-gray-100 dark:focus:ring-emerald-950;
+  @apply w-full rounded-2xl border border-green-200 bg-white/50 backdrop-blur-sm px-4 py-3 text-sm text-gray-900 outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-verdant-primary focus:ring-4 focus:ring-green-50 dark:border-emerald-900 dark:bg-gray-950/60 dark:text-gray-100 dark:focus:ring-emerald-950;
 }
 
 .print-surface {

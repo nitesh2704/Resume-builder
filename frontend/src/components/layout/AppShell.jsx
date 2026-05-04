@@ -25,7 +25,7 @@ export default function AppShell() {
       <main className="px-4 pb-24 pt-6 sm:px-6 lg:ml-80 lg:px-8 lg:pb-6">
         <Outlet />
       </main>
-      <nav className="no-print fixed inset-x-4 bottom-4 z-40 grid grid-cols-3 gap-2 rounded-2xl border border-green-200 bg-white/90 p-2 shadow-card backdrop-blur-xl dark:border-emerald-900 dark:bg-gray-950/90 lg:hidden">
+      <nav className="no-print fixed inset-x-4 bottom-4 z-40 grid grid-cols-3 gap-2 rounded-2xl border border-green-200/60 bg-white/70 p-2 shadow-card backdrop-blur-2xl dark:border-emerald-900/50 dark:bg-gray-950/70 lg:hidden">
         {[
           { to: '/dashboard', label: 'Home', icon: LayoutDashboard },
           { to: '/builder', label: 'Builder', icon: FilePlus2 },
@@ -37,10 +37,9 @@ export default function AppShell() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `flex flex-col items-center justify-center rounded-xl px-2 py-2 text-xs font-bold transition-all duration-300 ${
-                  isActive
-                    ? 'bg-verdant-primary text-white'
-                    : 'text-gray-500 hover:bg-green-50 hover:text-verdant-primary dark:text-gray-300 dark:hover:bg-emerald-950'
+                `flex flex-col items-center justify-center rounded-xl px-2 py-2 text-xs font-bold transition-all duration-300 ${isActive
+                  ? 'bg-verdant-primary text-white'
+                  : 'text-gray-500 hover:bg-green-50 hover:text-verdant-primary dark:text-gray-300 dark:hover:bg-emerald-950'
                 }`
               }
             >

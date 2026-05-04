@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { FieldArray, Form, Formik } from 'formik'
 import { Download, Plus, Save, Sparkles, Trash2, Wand2 } from 'lucide-react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import * as Yup from 'yup'
 import AISuggestionsPanel from '../components/AISuggestionsPanel'
+import AiResumeChatbot from '../components/AiResumeChatbot'
 import Button from '../components/Button'
 import FormField from '../components/FormField'
 import ResumePreview from '../components/ResumePreview'
@@ -99,25 +100,62 @@ function previewFromValues(values, score) {
 export default function Builder() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const { fetchResume, saveResume, loading } = useResumes()
   const [initialValues, setInitialValues] = useState(normalizeForForm(emptyResume))
   const [suggestions, setSuggestions] = useState(null)
   const [suggestionLoading, setSuggestionLoading] = useState(false)
+  const [fillLoading, setFillLoading] = useState(false)
   const [score, setScore] = useState(null)
   const [error, setError] = useState('')
 
   useEffect(() => {
     if (!id) {
-      setInitialValues(normalizeForForm(emptyResume))
+      const templateId = searchParams.get('template') || emptyResume.templateId
+      setInitialValues(normalizeForForm({ ...emptyResume, templateId }))
       return
     }
 
     fetchResume(id)
       .then((resume) => setInitialValues(normalizeForForm(resume)))
       .catch((err) => setError(err.message))
-  }, [id])
+  }, [id, searchParams])
 
   const pageTitle = useMemo(() => (id ? 'Edit resume' : 'Create resume'), [id])
+
+  const exportResumePdf = () => {
+    try {
+      const node = document.getElementById('resume-preview')
+      if (!node) {
+        window.print()
+        return
+      }
+
+      const html = node.outerHTML
+      const cssNodes = Array.from(document.querySelectorAll('link[rel="stylesheet"], style'))
+      const css = cssNodes.map((n) => n.outerHTML).join('\n')
+
+      const printWindow = window.open('', '_blank', 'width=900,height=1120')
+      if (!printWindow) {
+        window.print()
+        return
+      }
+
+      printWindow.document.open()
+      printWindow.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Resume</title>${css}</head><body>${html}</body></html>`)
+      printWindow.document.close()
+
+      // Wait for styles to load
+      setTimeout(() => {
+        printWindow.focus()
+        printWindow.print()
+        printWindow.close()
+      }, 600)
+    } catch (err) {
+      console.error('Export failed, falling back to window.print()', err)
+      window.print()
+    }
+  }
 
   return (
     <div className="mx-auto max-w-[1500px] space-y-6">
@@ -130,7 +168,7 @@ export default function Builder() {
         </div>
         <div className="flex items-center gap-3">
           <ScoreRing score={score?.score || initialValues.atsScore || 0} />
-          <Button variant="secondary" onClick={() => window.print()}>
+          <Button variant="secondary" onClick={exportResumePdf}>
             <Download className="h-4 w-4" />
             Export PDF
           </Button>
@@ -202,6 +240,71 @@ export default function Builder() {
               setScore(result)
             } catch (err) {
               setError(err.message)
+            }
+          }
+
+          const applyAiResume = (data) => {
+            if (!data) {
+              return
+            }
+
+            // Avoid filling personal details (name, email, phone, location, linkedin, portfolio)
+            // Only fill professional content
+            setFieldValue('targetRole', data.role || '')
+            setFieldValue('summary', data.summary || '')
+            setFieldValue('skillsText', (data.skills || []).join(', '))
+
+            // Map experience with all extracted fields
+            const experience = (data.experience || []).map((item) => ({
+              company: item.company || '',
+              role: item.role || '',
+              startDate: item.startDate || '',
+              endDate: item.endDate || '',
+              location: item.location || '',
+              achievementText: (item.achievements || []).join('\n')
+            }))
+
+            // Map projects with all extracted fields
+            const projects = (data.projects || []).map((item) => ({
+              name: item.name || '',
+              description: item.description || '',
+              link: item.link || '',
+              technologyText: (item.technologies || []).join(', ')
+            }))
+
+            // Map education with all extracted fields
+            const education = (data.education || []).map((item) => ({
+              institution: item.institution || '',
+              degree: item.degree || '',
+              startYear: item.startYear || '',
+              endYear: item.endYear || '',
+              score: item.score || ''
+            }))
+
+            if (experience.length) {
+              setFieldValue('experience', experience)
+            }
+
+            if (projects.length) {
+              setFieldValue('projects', projects)
+            }
+
+            if (education.length) {
+              setFieldValue('education', education)
+            }
+          }
+
+          const handleFillWithAi = async () => {
+            setError('')
+            setFillLoading(true)
+            try {
+              const input = values.summary || values.targetRole || ''
+              const result = await aiService.generateResume({ input })
+              applyAiResume(result)
+            } catch (err) {
+              setError(err.message)
+            } finally {
+              setFillLoading(false)
             }
           }
 
@@ -284,6 +387,10 @@ export default function Builder() {
                   <div className="mb-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
                     <h3 className="text-lg font-extrabold text-gray-950 dark:text-white">Profile and Skills</h3>
                     <div className="flex gap-2">
+                      <Button variant="secondary" onClick={handleFillWithAi} loading={fillLoading}>
+                        <Sparkles className="h-4 w-4" />
+                        Fill with AI
+                      </Button>
                       <Button variant="secondary" onClick={polishSummary}>
                         <Wand2 className="h-4 w-4" />
                         Polish
@@ -453,6 +560,7 @@ export default function Builder() {
                   </div>
                 ) : null}
               </aside>
+              <AiResumeChatbot onApply={applyAiResume} />
             </Form>
           )
         }}
