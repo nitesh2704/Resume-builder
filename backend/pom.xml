@@ -14,7 +14,7 @@
     <groupId>com.verdantai</groupId>
     <artifactId>resume-builder</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Verdant AI Resume Builder</name>
+    <name>EcoResume | AI Resume Builder</name>
     <description>AI-powered resume builder with role-specific content suggestions.</description>
 
     <properties>

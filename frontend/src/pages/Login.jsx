@@ -23,8 +23,8 @@ export default function Login() {
       <section className="flex min-h-screen flex-col px-6 py-6 lg:px-12">
         <div className="flex items-center justify-between">
           <Link to="/login" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="Verdant AI" className="h-11 w-11 rounded-2xl shadow-md" />
-            <span className="text-xl font-extrabold text-gray-950 dark:text-white">Verdant AI</span>
+            <img src="/logo.svg" alt="EcoResume" className="h-11 w-11 rounded-2xl shadow-md" />
+            <span className="text-xl font-extrabold text-gray-950 dark:text-white">EcoResume</span>
           </Link>
           <ThemeToggle />
         </div>

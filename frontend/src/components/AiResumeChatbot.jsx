@@ -209,7 +209,7 @@ export default function AiResumeChatbot({ onApply }) {
       <div
         ref={panelRef}
         style={{ left: `${position.x}px`, top: `${position.y}px`, width: `${size.width}px`, height: `${size.height}px` }}
-        className={`fixed z-40 origin-top-left overflow-hidden rounded-2xl border border-green-200 bg-white/80 shadow-2xl backdrop-blur-2xl transition-[opacity,transform,left,top,width,height] duration-300 dark:border-emerald-900 dark:bg-gray-950/80 ${open ? 'scale-100 opacity-100' : 'pointer-events-none scale-95 opacity-0'
+        className={`fixed z-40 origin-top-left overflow-hidden rounded-2xl border border-green-200 bg-white/80 shadow-2xl backdrop-blur-2xl transition-[opacity,transform,left,top,width,height] duration-300 dark:border-emerald-900 dark:bg-verdant-dark-panel/80 ${open ? 'scale-100 opacity-100' : 'pointer-events-none scale-95 opacity-0'
           }`}
       >
         <div
@@ -246,7 +246,7 @@ export default function AiResumeChatbot({ onApply }) {
             ))}
 
             {hasResult ? (
-              <div className="rounded-xl border border-green-200 bg-white p-3 text-xs text-gray-700 shadow-sm dark:border-emerald-900 dark:bg-gray-900 dark:text-gray-200">
+              <div className="rounded-xl border border-green-200 bg-white p-3 text-xs text-gray-700 shadow-sm dark:border-emerald-900 dark:bg-verdant-dark-panel dark:text-gray-200">
                 <p className="font-semibold text-gray-900 dark:text-white">Extracted details</p>
                 <p className="mt-1 text-[11px] text-gray-500 dark:text-gray-400">Summary</p>
                 <p className="text-xs leading-5">{lastResult.summary || 'No summary provided.'}</p>
@@ -284,7 +284,7 @@ export default function AiResumeChatbot({ onApply }) {
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 placeholder="Describe your background..."
-                className="h-11 flex-1 rounded-xl border border-green-200 bg-white px-3 text-xs text-gray-800 shadow-sm outline-none focus:border-verdant-primary dark:border-emerald-900 dark:bg-gray-900 dark:text-gray-100"
+                className="h-11 flex-1 rounded-xl border border-green-200 bg-white px-3 text-xs text-gray-800 shadow-sm outline-none focus:border-verdant-primary dark:border-emerald-900 dark:bg-verdant-dark-panel dark:text-gray-100"
               />
               <Button className="h-11 px-4" onClick={handleSend} loading={loading} disabled={!canSend}>
                 <Send className="h-4 w-4" />

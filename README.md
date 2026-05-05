@@ -1,4 +1,4 @@
-# Verdant AI Resume Builder
+# EcoResume | AI Resume Builder
 
 AI-powered resume builder with role-specific content suggestions, Spring Boot APIs, MongoDB persistence, JWT security, resume scoring, templates, search/filter, history, and a premium green SaaS UI.
 

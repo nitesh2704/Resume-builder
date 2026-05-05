@@ -111,7 +111,7 @@ public class DataSeeder {
 
     private ProjectItem project() {
         ProjectItem project = new ProjectItem();
-        project.setName("Verdant AI Resume Builder");
+        project.setName("EcoResume | AI Resume Builder");
         project.setDescription("AI-powered full-stack resume builder with role-specific suggestions, ATS scoring, templates, and PDF export.");
         project.setTechnologies(List.of("React", "Tailwind CSS", "Spring Boot", "MongoDB", "Gemini API"));
         project.setLink("github.com/demo/verdant-ai");

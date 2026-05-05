@@ -24,8 +24,8 @@ export default function Register() {
       <div className="w-full max-w-xl">
         <div className="mb-8 flex items-center justify-between">
           <Link to="/login" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="Verdant AI" className="h-11 w-11 rounded-2xl shadow-md" />
-            <span className="text-xl font-extrabold text-gray-950 dark:text-white">Verdant AI</span>
+            <img src="/logo.svg" alt="EcoResume" className="h-11 w-11 rounded-2xl shadow-md" />
+            <span className="text-xl font-extrabold text-gray-950 dark:text-white">EcoResume</span>
           </Link>
           <ThemeToggle />
         </div>

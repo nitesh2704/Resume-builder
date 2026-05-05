@@ -85,7 +85,7 @@ export const demoResume = {
   ],
   projects: [
     {
-      name: 'Verdant AI Resume Builder',
+      name: 'EcoResume | AI Resume Builder',
       description: 'AI-powered resume builder with role suggestions, ATS scoring, templates, and PDF export.',
       link: 'github.com/demo/verdant-ai',
       technologies: ['React', 'Spring Boot', 'MongoDB', 'Gemini API']

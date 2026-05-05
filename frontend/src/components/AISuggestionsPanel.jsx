@@ -2,7 +2,7 @@ import { CheckCircle2, Lightbulb, Sparkles, Wand2 } from 'lucide-react'
 
 function SuggestionGroup({ icon: Icon, title, items }) {
   return (
-    <div className="rounded-2xl border border-green-200 bg-white/80 p-4 shadow-sm dark:border-emerald-900 dark:bg-gray-950/70">
+    <div className="rounded-2xl border border-green-200 bg-white/80 p-4 shadow-sm dark:border-emerald-900 dark:bg-verdant-dark-panel/70">
       <div className="mb-3 flex items-center gap-2">
         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-verdant-primary dark:bg-emerald-950 dark:text-green-300">
           <Icon className="h-4 w-4" />

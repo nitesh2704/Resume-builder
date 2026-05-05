@@ -8,7 +8,7 @@ import { useResumes } from '../context/ResumeContext'
 
 function StatCard({ icon: Icon, label, value, accent }) {
   return (
-    <div className="rounded-2xl border border-green-200 bg-white p-5 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-emerald-900 dark:bg-gray-900">
+    <div className="rounded-2xl border border-green-200 bg-white p-5 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-emerald-900 dark:bg-verdant-dark-panel">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-semibold text-gray-500 dark:text-gray-400">{label}</p>
@@ -60,14 +60,14 @@ export default function Dashboard() {
         />
       </section>
 
-      <section className="rounded-2xl border border-green-200 bg-white/90 p-5 shadow-card backdrop-blur-xl dark:border-emerald-900 dark:bg-gray-900/80">
+      <section className="rounded-2xl border border-green-200 bg-white/90 p-5 shadow-card backdrop-blur-xl dark:border-emerald-900 dark:bg-verdant-dark-panel/80">
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
           <div>
             <h2 className="text-2xl font-extrabold text-gray-950 dark:text-white">Resume Workspace</h2>
             <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Search, score, edit, and export your latest drafts.</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <div className="flex items-center rounded-full border border-green-200 bg-white px-4 py-2 dark:border-emerald-900 dark:bg-gray-950 md:hidden">
+            <div className="flex items-center rounded-full border border-green-200 bg-white px-4 py-2 dark:border-emerald-900 dark:bg-verdant-dark-panel md:hidden">
               <Search className="h-4 w-4 text-gray-400" />
               <input
                 type="search"
@@ -96,7 +96,7 @@ export default function Dashboard() {
             {[1, 2, 3].map((item) => (
               <div
                 key={item}
-                className="h-64 animate-pulse rounded-2xl border border-green-100 bg-green-50 dark:border-emerald-950 dark:bg-gray-950"
+                className="h-64 animate-pulse rounded-2xl border border-green-100 bg-green-50 dark:border-emerald-950 dark:bg-verdant-dark-panel"
               />
             ))}
           </div>

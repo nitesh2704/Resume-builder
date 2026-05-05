@@ -8,7 +8,7 @@ export default function ResumeCard({ resume, onDelete }) {
   const keywords = resume.matchedKeywords?.slice(0, 4) || []
 
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-green-200/90 bg-white p-5 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-emerald-900 dark:bg-gray-900">
+    <article className="group relative overflow-hidden rounded-2xl border border-green-200/90 bg-white p-5 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-emerald-900 dark:bg-verdant-dark-panel">
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-verdant-primary via-green-400 to-emerald-200" />
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">

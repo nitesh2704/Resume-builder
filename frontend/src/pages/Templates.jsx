@@ -60,7 +60,7 @@ export default function Templates() {
   const cardPreview = (template) => {
     if (template.id === 'canopy') {
       return (
-        <div className="grid h-full grid-cols-[0.45fr_1fr] gap-3 rounded-2xl border border-emerald-200 bg-white p-4 shadow-sm dark:border-emerald-900 dark:bg-gray-950">
+        <div className="grid h-full grid-cols-[0.45fr_1fr] gap-3 rounded-2xl border border-emerald-200 bg-white p-4 shadow-sm dark:border-emerald-900 dark:bg-verdant-dark-panel">
           <div className="rounded-xl bg-emerald-50 p-3 dark:bg-emerald-950">
             <div className="h-2 w-10 rounded-full" style={{ backgroundColor: template.accentColor }} />
             <div className="mt-3 space-y-2">
@@ -88,7 +88,7 @@ export default function Templates() {
 
     if (template.id === 'moss') {
       return (
-        <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-gray-950">
+        <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-verdant-dark-panel">
           <div className="flex items-center justify-between">
             <div className="h-2 w-20 rounded-full" style={{ backgroundColor: template.accentColor }} />
             <div className="h-2 w-10 rounded-full bg-slate-100 dark:bg-slate-800" />
@@ -108,7 +108,7 @@ export default function Templates() {
     }
 
     return (
-      <div className="h-full rounded-2xl border border-green-200 bg-white p-4 shadow-sm dark:border-emerald-900 dark:bg-gray-950">
+      <div className="h-full rounded-2xl border border-green-200 bg-white p-4 shadow-sm dark:border-emerald-900 dark:bg-verdant-dark-panel">
         <div className="h-3 w-28 rounded-full" style={{ backgroundColor: template.accentColor }} />
         <div className="mt-4 grid gap-2">
           <div className="h-2 w-full rounded-full bg-gray-100 dark:bg-gray-800" />
@@ -126,7 +126,7 @@ export default function Templates() {
 
   return (
     <div className="mx-auto max-w-7xl space-y-6">
-      <section className="flex flex-col justify-between gap-4 rounded-2xl border border-green-200 bg-white/90 p-6 shadow-card dark:border-emerald-900 dark:bg-gray-900/80 md:flex-row md:items-center">
+      <section className="flex flex-col justify-between gap-4 rounded-2xl border border-green-200 bg-white/90 p-6 shadow-card dark:border-emerald-900 dark:bg-verdant-dark-panel/80 md:flex-row md:items-center">
         <div>
           <p className="text-sm font-bold uppercase text-verdant-primary dark:text-green-300">Templates</p>
           <h2 className="mt-2 text-3xl font-extrabold text-gray-950 dark:text-white">Choose a Verdant layout</h2>
@@ -152,7 +152,7 @@ export default function Templates() {
                 setSelectedId(template.id)
               }
             }}
-            className={`group relative overflow-hidden rounded-2xl border bg-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus:outline-none dark:bg-gray-900 ${selectedId === template.id
+            className={`group relative overflow-hidden rounded-2xl border bg-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus:outline-none dark:bg-verdant-dark-panel ${selectedId === template.id
               ? 'border-emerald-400 ring-2 ring-emerald-300 dark:border-emerald-500 dark:ring-emerald-700'
               : 'border-green-200 dark:border-emerald-900'
               }`}

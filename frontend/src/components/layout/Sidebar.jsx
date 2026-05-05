@@ -20,9 +20,9 @@ export default function Sidebar() {
   return (
     <aside className="no-print fixed inset-y-4 left-4 z-30 hidden w-72 flex-col rounded-2xl border border-green-200/60 bg-gradient-to-b from-white/70 via-green-50/70 to-emerald-100/70 p-4 shadow-card backdrop-blur-2xl dark:border-emerald-900/50 dark:from-gray-950/80 dark:via-emerald-950/70 dark:to-black/80 lg:flex">
       <div className="flex items-center gap-3 px-2 py-3">
-        <img src="/logo.svg" alt="Verdant AI" className="h-11 w-11 rounded-2xl shadow-md" />
+        <img src="/logo.svg" alt="EcoResume AI" className="h-11 w-11 rounded-2xl shadow-md" />
         <div>
-          <p className="text-lg font-extrabold text-gray-950 dark:text-white">Verdant AI</p>
+          <p className="text-lg font-extrabold text-gray-950 dark:text-white">EcoResume AI</p>
           <p className="text-xs font-semibold text-verdant-primary dark:text-green-300">Resume Studio</p>
         </div>
       </div>

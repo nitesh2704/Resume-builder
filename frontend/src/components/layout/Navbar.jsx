@@ -11,22 +11,22 @@ const titles = {
 
 export default function Navbar({ onSearch }) {
   const location = useLocation()
-  const title = titles[location.pathname] || (location.pathname.startsWith('/builder') ? 'Resume Builder' : 'Verdant AI')
+  const title = titles[location.pathname] || (location.pathname.startsWith('/builder') ? 'Resume Builder' : 'EcoResume')
 
   return (
     <header className="no-print sticky top-0 z-20 border-b border-green-100/70 bg-verdant-light/70 backdrop-blur-2xl transition-colors duration-300 dark:border-emerald-950 dark:bg-verdant-dark/70 lg:ml-80">
       <div className="flex min-h-20 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-3">
           <Link to="/dashboard" className="lg:hidden">
-            <img src="/logo.svg" alt="Verdant AI" className="h-11 w-11 rounded-2xl shadow-md" />
+            <img src="/logo.svg" alt="EcoResume" className="h-11 w-11 rounded-2xl shadow-md" />
           </Link>
           <div className="min-w-0">
-            <p className="text-xs font-bold uppercase text-verdant-primary dark:text-green-300">Verdant AI</p>
+            <p className="text-xs font-bold uppercase text-verdant-primary dark:text-green-300">EcoResume</p>
             <h1 className="truncate text-2xl font-extrabold text-gray-950 dark:text-white">{title}</h1>
           </div>
         </div>
 
-        <div className="hidden max-w-md flex-1 items-center rounded-full border border-green-200 bg-white/80 px-4 py-2 shadow-sm dark:border-emerald-900 dark:bg-gray-950/80 md:flex">
+        <div className="hidden max-w-md flex-1 items-center rounded-full border border-green-200 bg-white/80 px-4 py-2 shadow-sm dark:border-emerald-900 dark:bg-verdant-dark-panel/80 md:flex">
           <Search className="h-4 w-4 text-gray-400" />
           <input
             type="search"

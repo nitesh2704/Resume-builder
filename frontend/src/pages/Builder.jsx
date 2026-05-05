@@ -159,7 +159,7 @@ export default function Builder() {
 
   return (
     <div className="mx-auto max-w-[1500px] space-y-6">
-      <section className="flex flex-col justify-between gap-4 rounded-2xl border border-green-200 bg-white/90 p-5 shadow-card dark:border-emerald-900 dark:bg-gray-900/80 xl:flex-row xl:items-center">
+      <section className="flex flex-col justify-between gap-4 rounded-2xl border border-green-200 bg-white/90 p-5 shadow-card dark:border-emerald-900 dark:bg-verdant-dark-panel/80 xl:flex-row xl:items-center">
         <div>
           <p className="text-sm font-bold uppercase text-verdant-primary dark:text-green-300">{pageTitle}</p>
           <h2 className="mt-1 text-3xl font-extrabold text-gray-950 dark:text-white">
@@ -527,7 +527,7 @@ export default function Builder() {
                   )}
                 </FieldArray>
 
-                <div className="sticky bottom-4 z-10 flex gap-3 rounded-full border border-green-200 bg-white/90 p-2 shadow-card backdrop-blur dark:border-emerald-900 dark:bg-gray-950/90">
+                <div className="sticky bottom-4 z-10 flex gap-3 rounded-full border border-green-200 bg-white/90 p-2 shadow-card backdrop-blur dark:border-emerald-900 dark:bg-verdant-dark-panel/90">
                   <Button type="submit" className="flex-1" loading={loading}>
                     <Save className="h-4 w-4" />
                     Save resume

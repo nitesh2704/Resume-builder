@@ -1,4 +1,4 @@
-# Verdant AI API
+# EcoResume API
 
 Base URL: `http://localhost:8080/api`
 

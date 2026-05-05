@@ -17,7 +17,7 @@ public class OpenApiConfig {
         String schemeName = "bearerAuth";
         return new OpenAPI()
                 .info(new Info()
-                        .title("Verdant AI Resume Builder API")
+                        .title("EcoResume | AI Resume Builder API")
                         .version("1.0.0")
                         .description("JWT-secured APIs for resumes, templates, scoring, and AI suggestions."))
                 .addSecurityItem(new SecurityRequirement().addList(schemeName))
