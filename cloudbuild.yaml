@@ -1,0 +1,64 @@
+steps:
+  # Build the backend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/resume-builder/backend:latest'
+      - './backend'
+    id: 'Build Backend'
+
+  # Build the frontend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/resume-builder/frontend:latest'
+      - './frontend'
+    id: 'Build Frontend'
+
+  # Push the backend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/resume-builder/backend:latest'
+    id: 'Push Backend'
+
+  # Push the frontend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/resume-builder/frontend:latest'
+    id: 'Push Frontend'
+
+  # Deploy to Cloud Run (Backend)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'resume-builder-backend'
+      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/resume-builder/backend:latest'
+      - '--region=us-central1'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--port=8081'
+      - '--set-env-vars=MONGODB_URI=$_MONGODB_URI,JWT_SECRET=$_JWT_SECRET,GEMINI_API_KEY=$_GEMINI_API_KEY'
+    id: 'Deploy Backend'
+
+  # Deploy to Cloud Run (Frontend)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'resume-builder-frontend'
+      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/resume-builder/frontend:latest'
+      - '--region=us-central1'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+    id: 'Deploy Frontend'
+
+images:
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/resume-builder/backend:latest'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/resume-builder/frontend:latest'
